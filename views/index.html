@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf8' />
+    <meta http-equiv='X-UA-Compatible', content='IE=edge, chrome=1' />
+    <meta name='Smile Track', content='description of your site' />
+    <meta name='akoz', content= "author of the site" />
+
+    <title>hello!</title>
+    <link rel='stylesheet' href='../assets/css/example.css' />
+  </head>
+
+  <body>
+
+    </script>
+    
+    
+<!--     <h1 div id= "instructions">Get close...</h1> -->
+    <!-- <p>All is going well here : )</p> -->
+    <div id= "func"> <img src ="../assets/img/logo.png" id= "size" alt= "logo" height ="365" width="676"></div>
+  
+<!--     < div id = "func">h<span id ="sub">e</span>llo<span id="tm">&trade;</span></p>
+ -->
+    <p div id ="static">seriously friendly</p>
+<!-- <span id = "title" ></span> -->
+    
+    <!-- <p div id="inline">breath spray</p>
+     -->
+<!--     <p id = "numbers" value = "my name"></p> -->
+    <INPUT TYPE="text" NAME="inputbox" VALUE="" Class = "box" ID="myx"><P></form>
+    <INPUT TYPE="text" NAME="inputbox" VALUE="" Class = "box" ID="myy"><P></form>
+    <INPUT TYPE="text" NAME="inputbox" VALUE="" Class = "box" ID="myz"><P></form>
+    <!-- <p TYPE="text" NAME="inputbox" VALUE="hello" ID="hello"><p> -->
+    <!-- <p id = "hello">hello</p>
+     -->
+
+    <script src= '../assets/js/headtrackr.js'></script>
+    <canvas id="inputCanvas" style="display:none"></canvas>
+
+    <video id="inputVideo" autoplay loop></video>
+    
+    <script type="text/javascript">
+    var videoInput = document.getElementById('inputVideo');
+    var canvasInput = document.getElementById('inputCanvas');
+
+    var htracker = new headtrackr.Tracker();
+    htracker.init(videoInput, canvasInput);
+    htracker.start();
+    // var c=document.getElementById("myCanvas");
+    // var ctx=c.getContext("2d");
+    // ctx.fillStyle="#FF0000";
+    // ctx.fillRect(0,0,150,75);
+    </script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script src='../assets/js/main.js'></script>
+    
+    <!-- Event listener for head tracking -->
+    <script type = "text/javascript">
+    
+    document.addEventListener('headtrackingEvent', 
+    function (event) {
+    if (event.z >0) {
+      
+      // document.getElementById('inputVideo').strokeRect(event.x, event.y);
+      document.getElementById("myx").value = event.x;
+      document.getElementById("myy").value = event.y;
+      document.getElementById("myz").value = event.z;
+
+      if (event.z >52 && event.z<64.5){
+         // if (event.z >32 && event.z<41){
+
+      document.getElementById("size").style.width = (70 +( 45 - event.z-50)) *100 + "px";
+
+      // document.getElementById("size").style.width = (41 +( 32 - event.z-10)) *100 + "px";
+    
+      document.getElementById("size").style.height = (70 + ( 45 - event.z-50)) *50 + "px";
+      // document.getElementById("size").style.height = (41 + ( 32 - event.z-10)) *50 + "px";
+      document.getElementById("static").style.opacity = (70 + ( 45 - event.z-57));
+     }
+        }
+      }
+    );
+    </script>
+
+ 
+
+ <script>
+      protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address); socket.onmessage = function(msg) { msg.data == 'reload' && window.location.reload() }
+    </script>
+
+  </body>
+
+</html>
